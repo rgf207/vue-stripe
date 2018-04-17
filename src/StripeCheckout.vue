@@ -5,7 +5,7 @@
 
         <button @click.prevent="purchase()"
                 :class="btnClass"
-                :disabled="!loaded">
+                :disabled="!loaded && !enabled">
             {{ button }}
         </button>
     </div>
@@ -63,16 +63,17 @@
                     return (value === 'submit' || value === 'broadcast')
                 }
             },
-            loaded: {
+            enabled: {
                 type: Boolean,
                 required: false,
-                default: false,
+                default: true,
             }
         },
         data() {
             return {
                 stripeEmail: '',
                 stripeToken: '',
+                loaded: false,
             }
         },
         mounted() {
