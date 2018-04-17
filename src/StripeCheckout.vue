@@ -62,13 +62,17 @@
                 validator: function (value) {
                     return (value === 'submit' || value === 'broadcast')
                 }
+            },
+            loaded: {
+                type: Boolean,
+                required: false,
+                default: false,
             }
         },
         data() {
             return {
                 stripeEmail: '',
                 stripeToken: '',
-                loaded: false,
             }
         },
         mounted() {
